@@ -1,0 +1,35 @@
+kind: pipeline
+type: docker
+name: build
+
+workspace:
+  path: /drone/pemweb
+
+concurrency:
+  limit: 1
+   
+steps:
+  - name: git
+    image: bitnami/git:latest
+    pull: if-not-exists
+    environment:
+      username: 
+    volumes:
+    - name: pemweb
+      path: /out
+    commands:
+    - rm -rf /out/*
+    - cp -r /drone/pemweb/. /out/.
+    - rm -rf /out/.git
+    - rm -f /out/.gitignore
+    - rm -f /out/.drone.yml
+
+trigger:
+  event:
+    include:
+    - push
+
+volumes:
+- name: pemweb
+  host:
+    path: /home/zecreaid/pemwebback
