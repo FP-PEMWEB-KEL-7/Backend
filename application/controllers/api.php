@@ -20,7 +20,7 @@ class Welcome extends CI_Controller {
 	 */
 	public function index()
 	{
-		$this->load->model('akun');
+		$this->load->model('Akun');
 		$data['data'] = $this->akun->get();
 		$this->load->view('response', $data);
 	}
