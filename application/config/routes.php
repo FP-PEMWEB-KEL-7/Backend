@@ -54,4 +54,9 @@ $route['404_override'] = '';
 $route['translate_uri_dashes'] = FALSE;
 
 $route['api/user/all'] = '_API_User/getall';
-$route['api/user/(:any)/(:any)'] = '_API_User/getby/$1/$2';
+$route['api/user/(:any)/(:any)']['GET'] = '_API_User/getby/$1/$2';
+$route['api/user/(:any)']['POST'] = '_API_User/getby/$1';
+
+$route['api/login']['GET'] = '_API/invalid';
+$route['api/register']['GET'] = '_API/invalid';
+$route['api/register']['POST'] = '_API/register';

@@ -19,6 +19,7 @@ class _API_User extends CI_Controller {
 	public function getby($by = null, $value = null)
 	{
 		$this->load->model('Akun');
+		$value = $value == null ? $this->input->post('value') : $value;
 		$get = $this->Akun->get($by, $value);
 		$message = empty($get) ? 'Data kosong' : 'Berhasil mengambil semua data user';
 		$data['data'] = [
@@ -29,3 +30,5 @@ class _API_User extends CI_Controller {
 		$this->load->view('response', $data);
 	}
 }
+
+?>

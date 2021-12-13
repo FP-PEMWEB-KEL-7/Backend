@@ -13,4 +13,19 @@ class Akun extends CI_Model {
 		$query = $this->db->get();
 		return $query->result();
 	}
+
+	public function add($data)
+	{
+		if (
+			!is_array($data)
+			&& !isset($data['email'])
+			&& !isset($data['name'])
+			&& !isset($data['password'])
+		) {
+			return false;
+		}
+
+		$data['password'] = password_hash($data['password'], PASSWORD_BCRYPT);
+		return $this->db->insert('akun', $data);
+	}
 }
