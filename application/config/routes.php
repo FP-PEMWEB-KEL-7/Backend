@@ -50,13 +50,19 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 |		my-controller/my-method	-> my_controller/my_method
 */
 $route['default_controller'] = 'Welcome';
-$route['404_override'] = '';
+$route['404_override'] = '_404/invalid';
 $route['translate_uri_dashes'] = FALSE;
 
-$route['api/user/all'] = '_API_User/getall';
-$route['api/user/(:any)/(:any)']['GET'] = '_API_User/getby/$1/$2';
+// website.com/api/user/all , Method: GET, Return: JSON
+$route['api/user/all'] = '_API_User/getall'; 
+// website.com/api/user/id/1 , Method: GET, Return: JSON
+$route['api/user/(:any)/(:any)']['GET'] = '_API_User/getby/$1/$2'; 
+// website.com/api/user/email , Method: POST, POST_DATA: value=any, Return: JSON
 $route['api/user/(:any)']['POST'] = '_API_User/getby/$1';
 
-$route['api/login']['GET'] = '_API/invalid';
-$route['api/register']['GET'] = '_API/invalid';
+// website.com/api/login , Method: POST, POST_DATA: email=any&password=any, Return: JSON
+$route['api/login']['POST'] = '_API/login';
+// website.com/api/logout , Method: GET, Return: JSON
+$route['api/logout']['GET'] = '_API/logout';
+// website.com/api/register , Method: POST, POST_DATA: email=any&name=any&password=any, Return: JSON
 $route['api/register']['POST'] = '_API/register';

@@ -2,10 +2,14 @@
 defined('BASEPATH') OR exit('No direct script access allowed');
 
 class Akun extends CI_Model {
-	public function get($by = null, $value = null)
+	public function get($by = null, $value = null, $logged_in = false)
 	{
-		// select specific column
-		$this->db->select('id, email, name');
+		if ($logged_in) {
+			$this->db->select('id, email, name, password');
+		} else {
+			$this->db->select('id, email, name');
+		}
+
 		$this->db->from('akun');
 		if ($by != null && $value != null) {
 			$this->db->where($by, $value);
@@ -18,9 +22,9 @@ class Akun extends CI_Model {
 	{
 		if (
 			!is_array($data)
-			&& !isset($data['email'])
-			&& !isset($data['name'])
-			&& !isset($data['password'])
+			|| !isset($data['email'])
+			|| !isset($data['name'])
+			|| !isset($data['password'])
 		) {
 			return false;
 		}

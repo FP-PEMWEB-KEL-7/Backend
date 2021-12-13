@@ -29,6 +29,7 @@ class _API_User extends CI_Controller {
 		];
 		$this->load->view('response', $data);
 	}
+	
 }
 
 ?>
