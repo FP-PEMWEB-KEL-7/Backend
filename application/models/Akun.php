@@ -10,7 +10,7 @@ class Akun extends CI_Model {
 		if ($id != null) {
 			$this->db->where('id', $id);
 		}
-		$query = $this->db->get('akun');
+		$query = $this->db->get();
 		return $query->result();
 	}
 }
