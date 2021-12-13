@@ -2,13 +2,13 @@
 defined('BASEPATH') OR exit('No direct script access allowed');
 
 class Akun extends CI_Model {
-	public function get($id = null)
+	public function get($by = null, $value = null)
 	{
 		// select specific column
 		$this->db->select('id, email, name');
 		$this->db->from('akun');
-		if ($id != null) {
-			$this->db->where('id', $id);
+		if ($by != null && $value != null) {
+			$this->db->where($by, $value);
 		}
 		$query = $this->db->get();
 		return $query->result();
