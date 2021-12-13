@@ -3,7 +3,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 class _API_User extends CI_Controller {
 
-	public function _getall()
+	public function getall()
 	{
 		$this->load->model('Akun');
 		$get = $this->Akun->get();
@@ -16,7 +16,7 @@ class _API_User extends CI_Controller {
 		$this->load->view('response', $data);
 	}
 
-	public function _getby($by = null, $value = null)
+	public function getby($by = null, $value = null)
 	{
 		$this->load->model('Akun');
 		$get = $this->Akun->get($by, $value);
