@@ -18,7 +18,7 @@ class _API extends CI_Controller {
 		$this->load->model('Akun');
 		$password = $this->input->post('password');
 		$email = $this->input->post('email');
-		$user = $this->Akun->get('email', $email);
+		$user = $this->Akun->get('email', $email, true);
 
 		if (empty($user)) {
 			$data['data'] = [
@@ -30,7 +30,7 @@ class _API extends CI_Controller {
 			return $this->load->view('response', $data);
 		}
 
-		if (!password_verify($password, $user->password)) {
+		if (!password_verify($password, $user[0]->password)) {
 			$data['data'] = [
 				'error' => true,
 				'message' => 'Password salah',
@@ -41,7 +41,7 @@ class _API extends CI_Controller {
 		}
 
 		$this->session->set_userdata('logged_in', true);
-		$this->session->set_userdata('user', $user);
+		$this->session->set_userdata('user', $user[0]);
 
 		$data['data'] = [
 			'error' => false,
@@ -92,6 +92,7 @@ class _API extends CI_Controller {
 		}
 
 		$this->session->set_userdata('logged_in', false);
+		$this->session->unset_userdata('user');
 
 		$data['data'] = [
 			'error' => false,
