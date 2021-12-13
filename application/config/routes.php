@@ -54,4 +54,4 @@ $route['404_override'] = '';
 $route['translate_uri_dashes'] = FALSE;
 
 $route['api/user/all'] = '_API_User/_getall';
-$route['api/user/(:any)/(:any)'] = '_API_User/_getby/$1/$2';
+$route['api/user/by/(:any)/(:any)'] = '_API_User/_getby/$1/$2';
