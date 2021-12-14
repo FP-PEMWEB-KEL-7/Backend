@@ -20,9 +20,9 @@
 ## API Route
 | URL | METHOD | GET PARAMETER | POST DATA | DESKRIPSI | Selesai |
 | -   |-       | -             | -         | -         | -        |
-| api/user/all | GET | None | None | Untuk mengambil semua user data (tanpa password) | ✅ |
-| api/user/(id&#124;name)/(any) | GET | None | None | Untuk mengambil user data berdasarkan id, atau name | ✅ |
-| api/user/(id&#124;email&#124;name&#124;password) | POST | None | `value=any` | Untuk mengambil user data berdasarkan id, email, name, atau password | ✅ |
+| api/user/all | GET | None | None | Untuk mengambil semua user data (tanpa return password) | ✅ |
+| api/user/(id&#124;name)/(any) | GET | None | None | Untuk mengambil user data berdasarkan id, atau name (tanpa return password) | ✅ |
+| api/user/(id&#124;email&#124;name&#124;password) | POST | None | `value=any` | Untuk mengambil user data berdasarkan id, email, name, atau password (tanpa return password) | ✅ |
 | api/login | POST | None | `email=string&password=string` | Untuk melakukan login | ✅ |
 | api/logout | GET | None | None | Untuk melakukan logout | ✅ |
 | api/register | POST | None | `email=string&password=string&name?=string` | Untuk melakukan register | ✅ |
@@ -32,8 +32,8 @@
 | api/article/(:num)/delete | GET | None | None | Untuk menghapus artikel berdasarkan id | ✅ |
 | api/article/create | POST | None | `title=string&content=string` | Untuk membuat artikel | ✅ |
 | api/article/(:num)/update | POST | None | `title?=string&content?=string` | Untuk mengubah artikel berdasarkan id | ✅ |
-| api/profile | GET | None | None | Untuk mengambil profile | ❌ |
-| api/profile/update | POST | None | `name?=string&email?=string&password?=string` | Untuk mengubah profile | ❌ |
+| api/profile | GET | None | None | Untuk mengambil profile (dengan return password) | ❌ |
+| api/profile/update | POST | None | `name?=string&email?=string&password?=string` | Untuk mengubah profile (dengan return password) | ❌ |
 
 Semua API route menghasilkan (return) JSON seperti berikut:
 ```json
