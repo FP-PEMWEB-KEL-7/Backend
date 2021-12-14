@@ -22,9 +22,10 @@ class Akun extends CI_Model {
 	{
 		if (
 			!is_array($data)
-			|| !isset($data['email'])
-			|| !isset($data['name'])
-			|| !isset($data['password'])
+			|| empty($data)
+			|| empty($data['email'])
+			|| empty($data['name'])
+			|| empty($data['password'])
 		) {
 			return false;
 		}

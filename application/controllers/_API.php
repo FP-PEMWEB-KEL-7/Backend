@@ -18,12 +18,33 @@ class _API extends CI_Controller {
 		$this->load->model('Akun');
 		$password = $this->input->post('password');
 		$email = $this->input->post('email');
+
+		if (empty($email) || empty($password)){
+			$data['data'] = [
+				'error' => true,
+				'message' => 'Data tidak lengkap',
+				'data' => null
+			];
+
+			return $this->load->view('response', $data);
+		}
+
 		$user = $this->Akun->get('email', $email, true);
 
 		if (empty($user)) {
 			$data['data'] = [
 				'error' => true,
 				'message' => 'User tidak terdaftar',
+				'data' => null
+			];
+
+			return $this->load->view('response', $data);
+		}
+
+		if ($user[0]->email != $email) {
+			$data['data'] = [
+				'error' => true,
+				'message' => 'Internal error',
 				'data' => null
 			];
 
@@ -64,10 +85,23 @@ class _API extends CI_Controller {
 		}
 
 		$this->load->model('Akun');
+		$password = $this->input->post('password');
+		$email = $this->input->post('email');
+
+		if (empty($email) || empty($password)){
+			$data['data'] = [
+				'error' => true,
+				'message' => 'Data tidak lengkap',
+				'data' => null
+			];
+
+			return $this->load->view('response', $data);
+		}
+
 		$user = [
-			'password' => $this->input->post('password'),
+			'password' => $password,
 			'name' => $this->input->post('name'),
-			'email' => $this->input->post('email')
+			'email' => $email
 		];
 		$add = $this->Akun->add($user);
 

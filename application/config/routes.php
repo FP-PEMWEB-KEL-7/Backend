@@ -66,3 +66,16 @@ $route['api/login']['POST'] = '_API/login';
 $route['api/logout']['GET'] = '_API/logout';
 // website.com/api/register , Method: POST, POST_DATA: email=any&name=any&password=any, Return: JSON
 $route['api/register']['POST'] = '_API/register';
+
+// website.com/api/article/all , Method: GET, Return: JSON
+$route['api/article/all'] = '_API_Artikel/get_all'; 
+// website.com/api/article/1 , Method: GET, Return: JSON
+$route['api/article/(:num)']['GET'] = '_API_Artikel/get_by_id/$1';
+// website.com/api/article/author/1 , Method: GET, Return: JSON
+$route['api/article/author/(:num)']['GET'] = '_API_Artikel/get_by_author/$1'; 
+// website.com/api/article/1/delete , Method: GET, Return: JSON
+$route['api/article/(:num)/delete']['GET'] = '_API_Artikel/delete/$1';  
+// website.com/api/article/create , Method: POST, Return: JSON
+$route['api/article/create']['POST'] = '_API_Artikel/create';  
+// website.com/api/article/1/update , Method: POST, Return: JSON
+$route['api/article/(:num)/update']['POST'] = '_API_Artikel/update/$1';  
