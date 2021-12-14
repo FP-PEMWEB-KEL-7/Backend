@@ -8,6 +8,9 @@
     <a href="https://drone-gh.zecrea.my.id/FP-PEMWEB-KEL-7/Backend">
         <img src="https://drone-gh.zecrea.my.id/api/badges/FP-PEMWEB-KEL-7/Backend/status.svg" alt="CI/CD">
     </a>
+	<a href="https://github.com/FP-PEMWEB-KEL-7/Backend/blob/master/license.txt">
+        <img src="https://img.shields.io/github/license/FP-PEMWEB-KEL-7/Backend" alt="License">
+    </a>
 </div>
 <div align="center">
     <br>
@@ -54,3 +57,7 @@ Semua API route menghasilkan (return) JSON seperti berikut:
 
 ## Open diskusi
 Silahkan ajukan pertanyaan ke [Discussion](https://github.com/FP-PEMWEB-KEL-7/Backend/discussions) atau Grup Whatsapp
+
+## License
+
+This repository is licensed under the terms of the MIT license.
